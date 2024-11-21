@@ -1,7 +1,8 @@
 const {Client, Events, GatewayIntentBits, Collection} = require( 'discord.js');
-const { token } = require('./config.json');
 const fs = require('node:fs');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildPresences, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent] });
+require('dotenv').config();
+const token = process.env.DISCORD_TOKEN
 
 client.commands = new Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));

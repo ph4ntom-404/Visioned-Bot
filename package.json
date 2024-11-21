@@ -2,6 +2,7 @@
   "dependencies": {
     "@hlpi/tiktok-api": "^1.0.10",
     "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
     "puppeteer": "^23.8.0"
   }
 }
