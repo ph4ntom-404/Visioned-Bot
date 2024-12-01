@@ -3,19 +3,13 @@ const fs = require('node:fs');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildPresences, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageReactions] });
 require('dotenv').config();
 const token = process.env.DISCORD_TOKEN
-
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 4000;
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
+const http = require('http')
+http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Bot is running\n');
+  }).listen(process.env.PORT || 3000); // Use Render's assigned PORT or default to 3000
+  
+  console.log('HTTP server is up and running!');
 const rnd = require('./rnd.js')
 client.commands = new Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
