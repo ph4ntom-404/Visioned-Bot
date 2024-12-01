@@ -3,15 +3,18 @@ const fs = require('node:fs');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildPresences, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageReactions] });
 require('dotenv').config();
 const token = process.env.DISCORD_TOKEN
-const http = require('http')
-http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Bot is running\n');
-  }).listen(process.env.PORT || 3000); // Use Render's assigned PORT or default to 3000
-  setInterval(() => {
-    http.get('http://your-render-url.onrender.com');
-}, 5 * 60 * 1000);
-  console.log('HTTP server is up and running!');
+const express = require('express');
+const app = express();
+
+// Simple route to respond to HTTP requests
+app.get('/', (req, res) => {
+    res.send('Bot is running!');
+});
+
+// Start the web server on a specific port
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
 const rnd = require('./rnd.js')
 client.commands = new Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
