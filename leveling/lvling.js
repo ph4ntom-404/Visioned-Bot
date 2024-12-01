@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 async function giveRole(message,name){
     const role = await message.guild.roles.cache.find(r => r.name === name)
-    const mem = message.guild.members.fetch(message.author.id)
+    const mem = message.guild.members.cache.find(m => m.id === message.author.id)
     if(role && !mem.roles.cache.has(role)){
         mem.roles.add(role)
     }
