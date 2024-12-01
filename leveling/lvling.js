@@ -1,36 +1,36 @@
 const { EmbedBuilder } = require('discord.js');
 async function giveRole(message,name){
     const role = await message.guild.roles.cache.find(r => r.name === name)
-    const mem = await message.guild.members.cache.find(m => m.id === message.author.id)
-    if(role && !mem.roles.cache.has(role)){
-        mem.roles.add(role)
+    const mem = message.guild.members.cache.get(message.author.id);
+    if(role && !mem.roles.cache.has(role.id)){
+        await mem.roles.add(role)
     }
 }
 module.exports = (async(user,message)=>{
     let mult = 1;
     if(user.level >=5){
-        giveRole(message,'5-Civillian')
+        await giveRole(message,'5-Civillian')
     }
     if(user.level >=15){
-        giveRole(message, '15-Hunter')
+        await giveRole(message, '15-Hunter')
         mult = 2;
-    } else if(user.level >=25){
-        giveRole(message,'25-1 Star Hunter')
+    } if(user.level >=25){
+        await giveRole(message,'25-1 Star Hunter')
         mult = 3
-    } else if(user.level >= 35){
-        giveRole(message,'35-2 Star Hunter')
+    } if(user.level >= 35){
+        await giveRole(message,'35-2 Star Hunter')
         mult = 4;
-    } else if(user.level >=55){
-        giveRole(message,'55-3 Star Hunter')
+    } if(user.level >=55){
+        await giveRole(message,'55-3 Star Hunter')
         mult = 5;
-    } else if(user.level >= 75){
-        giveRole(message,'75-Troupe Member')
+    } if(user.level >= 75){
+        await giveRole(message,'75-Troupe Member')
         mult = 6;
-    } else if(user.level >= 100){
-        giveRole('100-Zoldyck')
+    } if(user.level >= 100){
+        await giveRole(message,'100-Zoldyck')
         mult = 7;
-    } else if(user.level >= 150){
-        giveRole(message,'150-King')
+    } if(user.level >= 150){
+        await giveRole(message,'150-King')
         mult = 8;
     }
     user.xp +=1 * mult;
