@@ -41,7 +41,7 @@ module.exports = {
     .addFields(
         {name:'Level', value:`${user.level}`},
         {name:'XP', value:`${user.xp * 10}xp / ${user.goal * 10}xp`},
-        {name:'%', value:`${Math.round((user.xp / user.goal)) * 100}%`},
+        {name:'%', value:`${Math.round((user.xp / user.goal)*100)}%`},
         {name:"Messages Sent", value:`${user.msgs}`}
     )
     .setTimestamp()
