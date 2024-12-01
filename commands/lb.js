@@ -11,7 +11,9 @@ async function getRankedUsers(user) {
       return rankedUsers.map((user, index) => ({
         rank: index + 1,
         userId: user.userId,
-        name: user.name
+        name: user.name,
+        xp: user.xp,
+        level: user.level
       }));
     } catch (error) {
       console.error('Error fetching ranked users:', error);
