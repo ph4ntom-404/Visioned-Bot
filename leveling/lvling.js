@@ -8,6 +8,9 @@ async function giveRole(message,name){
 }
 module.exports = (async(user,message)=>{
     let mult = 1;
+    if(user.level >=5){
+        giveRole('5-Civillian')
+    }
     if(user.level >=15){
         giveRole(message, '15-Hunter')
         mult = 2;
