@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder} = require("discord.js")
-const fs = require('fs').promises
+const Users = require('../models/levels')
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('lvl')
@@ -25,17 +25,24 @@ module.exports = {
         pers = message.author;
     }
 
-    const data = await fs.readFile('./leveling/users.json', 'utf8');
-    const users = JSON.parse(data);
+    let user = await Users.findOne({userId:pers.id})
+    if(!user){
+        user = new Users({
+            userId:pers.id,
+            name:pers.globalName
+        })
+        await user.save()
+    }
     const embed = new EmbedBuilder()
     embed.setColor(0x044d11)
     .setTitle(`${pers.globalName}'s info`)
     .setThumbnail(pers.displayAvatarURL({dynamic:true}))
     .setDescription(`The level information for ${pers.globalName}`)
     .addFields(
-        {name:'Level', value:`${users[pers.id].level}`},
-        {name:'XP', value:`${users[pers.id].msgs * 10}xp / ${users[pers.id].goal * 10}xp`},
-        {name:'%', value:`${Math.round(users[pers.id].xp)}%`}
+        {name:'Level', value:`${user.level}`},
+        {name:'XP', value:`${user.xp * 10}xp / ${user.goal * 10}xp`},
+        {name:'%', value:`${Math.round((user.xp / user.goal))}%`},
+        {name:"Messages Sent", value:`${user.msgs}`}
     )
     .setTimestamp()
     .setFooter({text:'Treasures Bot'});

@@ -17,7 +17,7 @@ module.exports = (async(user,message)=>{
     } else if(user.level >= 150){
         mult = 8;
     }
-    user.xp +=2 * mult;
+    user.xp +=1 * mult;
     user.msgs+=1;
     if(user.xp >= user.goal){
         user.level +=1;
