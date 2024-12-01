@@ -1,0 +1,59 @@
+{
+    "Roles": {
+      "Novice": {
+        "price": 1500,
+        "description": "Purchasable rank role for new players",
+        "repurchase": false
+      },
+      "Amateur": {
+        "price": 7500,
+        "description": "Purchasable rank role for players",
+        "repurchase": false
+      },
+      "Skilled": {
+        "price": 15000,
+        "description": "Purchasable rank role for players",
+        "repurchase": false
+      },
+      "Master": {
+        "price": 50000,
+        "description": "Purchasable rank role for players",
+        "repurchase": false
+      },
+      "Grand Master": {
+        "price": 75000,
+        "description": "Purchasable rank role for players",
+        "repurchase": false
+      },
+      "???": {
+        "price": 100000,
+        "description": "Ultimate purchasable rank role for players",
+        "repurchase": false
+      },
+      "Custom Role": {
+        "price": 305000,
+        "description": "A custom personalized role",
+        "repurchase": false
+      }
+    },
+    "Perks": {},
+    "Utility": {
+      "Ko": {
+        "price": 2500,
+        "description": "Grants temporary invulnerability from robberies",
+        "repurchase": true,
+        "expires": 172800000
+      },
+      "Barrier": {
+        "price": 45000,
+        "description": "Offers temporary invulnerability from guild raids",
+        "expires": 259200000
+      },
+      "Multiplier": {
+        "price": 50000,
+        "description": "Multiplies all gained Nen by 2",
+        "expires": 172800000
+      }
+    }
+  }
+  

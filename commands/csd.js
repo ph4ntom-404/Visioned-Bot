@@ -6,7 +6,7 @@ module.exports = {
     .setDescription('send to certain channel'),
    async execute(message, args, client) {
     let msg = '';
-    const vis = client.guilds.cache.find(g=> g.name === 'visioned');
+    const vis = client.guilds.cache.find(g=> g.name === 'Treasures');
     const channel = vis.channels.cache.find(c=> c.name === 'posted')
     if (channel && channel.isTextBased()) {
         const permissions = channel.permissionsFor(channel.guild.members.me);
