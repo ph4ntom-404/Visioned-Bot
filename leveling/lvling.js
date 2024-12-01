@@ -9,28 +9,28 @@ async function giveRole(message,name){
 module.exports = (async(user,message)=>{
     let mult = 1;
     if(user.level >=5){
-        giveRole('5-Civillian')
+        giveRole(message,'5-Civillian')
     }
     if(user.level >=15){
         giveRole(message, '15-Hunter')
         mult = 2;
     } else if(user.level >=25){
-        giveRole('25-1 Star Hunter')
+        giveRole(message,'25-1 Star Hunter')
         mult = 3
     } else if(user.level >= 35){
-        giveRole('35-2 Star Hunter')
+        giveRole(message,'35-2 Star Hunter')
         mult = 4;
     } else if(user.level >=55){
-        giveRole('55-3 Star Hunter')
+        giveRole(message,'55-3 Star Hunter')
         mult = 5;
     } else if(user.level >= 75){
-        giveRole('75-Troupe Member')
+        giveRole(message,'75-Troupe Member')
         mult = 6;
     } else if(user.level >= 100){
         giveRole('100-Zoldyck')
         mult = 7;
     } else if(user.level >= 150){
-        giveRole('150-King')
+        giveRole(message,'150-King')
         mult = 8;
     }
     user.xp +=1 * mult;
