@@ -8,7 +8,9 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Bot is running\n');
   }).listen(process.env.PORT || 3000); // Use Render's assigned PORT or default to 3000
-  
+  setInterval(() => {
+    http.get('http://your-render-url.onrender.com');
+}, 5 * 60 * 1000);
   console.log('HTTP server is up and running!');
 const rnd = require('./rnd.js')
 client.commands = new Collection();
