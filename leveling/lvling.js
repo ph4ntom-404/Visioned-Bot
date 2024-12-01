@@ -1,20 +1,33 @@
 const { EmbedBuilder } = require('discord.js');
-
+async function giveRole(message,name){
+    const role = await message.guild.roles.cache.find(r => r.name === name)
+    const mem = message.guild.members.fetch(message.author.id)
+    if(role && !mem.roles.cache.has(role)){
+        mem.roles.add(role)
+    }
+}
 module.exports = (async(user,message)=>{
     let mult = 1;
     if(user.level >=15){
+        giveRole(message, '15-Hunter')
         mult = 2;
     } else if(user.level >=25){
+        giveRole('25-1 Star Hunter')
         mult = 3
     } else if(user.level >= 35){
+        giveRole('35-2 Star Hunter')
         mult = 4;
     } else if(user.level >=55){
+        giveRole('55-3 Star Hunter')
         mult = 5;
     } else if(user.level >= 75){
+        giveRole('75-Troupe Member')
         mult = 6;
     } else if(user.level >= 100){
+        giveRole('100-Zoldyck')
         mult = 7;
     } else if(user.level >= 150){
+        giveRole('150-King')
         mult = 8;
     }
     user.xp +=1 * mult;
