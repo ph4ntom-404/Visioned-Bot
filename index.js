@@ -18,7 +18,7 @@ app.listen(port, () => console.log(`Server is listening on port ${port}`));
 const axios = require('axios');
 
 // URL of your bot's endpoint
-const botUrl = 'https://treasures-bot.onrender.com/';
+const botUrl = 'https://treasures-bot.onrender.com/health';
 
 // Function to ping the bot
 function keepAlive() {
