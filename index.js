@@ -43,10 +43,10 @@ for (const file of commandFiles) {
 }
 
 const prefix = ">";
-client.once(Events.ClientReady, readyClient => {
+client.once(Events.ClientReady, async readyClient => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`);
   client.user.setActivity('with my testicles. please come watch', { type: ActivityType.Playing });
-  keepAlive();
+  await keepAlive();
 });
 const mongoose = require('mongoose');
 
