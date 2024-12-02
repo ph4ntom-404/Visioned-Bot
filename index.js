@@ -13,6 +13,23 @@ app.get('/', (req, res) => res.send('Bot is running!'));
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
 
 
+const axios = require('axios');
+
+// URL of your bot's endpoint
+const botUrl = 'https://treasures-bot.onrender.com/';
+
+// Function to ping the bot
+function keepAlive() {
+    setInterval(async () => {
+        try {
+            const response = await axios.get(botUrl);
+            console.log('Self-ping successful!');
+        } catch (error) {
+            console.error('Error while pinging:', error.response ? error.response.status : error.message);
+        }
+    }, 2 * 60 * 1000); // Ping every 5 minutes
+}
+
 const rnd = require('./rnd.js')
 client.commands = new Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
