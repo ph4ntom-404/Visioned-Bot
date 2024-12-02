@@ -4,6 +4,15 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 require('dotenv').config();
 const token = process.env.DISCORD_TOKEN
 
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => res.send('Bot is running!'));
+
+app.listen(port, () => console.log(`Server is listening on port ${port}`));
+
+
 const rnd = require('./rnd.js')
 client.commands = new Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
