@@ -3,18 +3,7 @@ const fs = require('node:fs');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildPresences, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageReactions] });
 require('dotenv').config();
 const token = process.env.DISCORD_TOKEN
-const express = require('express');
-const app = express();
 
-// Simple route to respond to HTTP requests
-app.get('/', (req, res) => {
-    res.send('Bot is running!');
-});
-
-// Start the web server on a specific port
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-});
 const rnd = require('./rnd.js')
 client.commands = new Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));

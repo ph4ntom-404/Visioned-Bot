@@ -1,0 +1,6 @@
+services:
+  - name: Treasures Bot
+    type: worker
+    env: node
+    buildCommand: "npm install"
+    startCommand: "node index.js" # Replace `index.js` with your bot's entry file
