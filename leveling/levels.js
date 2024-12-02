@@ -6,7 +6,7 @@ module.exports = async (user,message) => {
         if(!usr){
             usr = new Users({
                 userId: user.id,
-                name:user.globalName
+                name:user.globalName || user.username
             })
             await usr.save();
             return;
