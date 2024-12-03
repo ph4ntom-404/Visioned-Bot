@@ -29,7 +29,7 @@ function keepAlive() {
         } catch (error) {
             console.error('Error while pinging:', error.response ? error.response.status : error.message);
         }
-    }, 2 * 60 * 1000); // Ping every 5 minutes
+    }, 5 * 60 * 1000); // Ping every 5 minutes
 }
 
 const rnd = require('./rnd.js')
