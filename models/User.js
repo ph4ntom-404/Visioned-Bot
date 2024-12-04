@@ -5,7 +5,8 @@ const userSchema = new Schema({
   name:{type: String, required :true},
   balance: { type: Number, default: 10 },
   inventory:{type: Array},
-  ability:{type: String, default:''}
+  ability:{type: String, default:''},
+  discipline:{type: Array, default:[]}
 });
 
 const User = model('User', userSchema);
