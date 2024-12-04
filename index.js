@@ -57,7 +57,7 @@ mongoose.connect('mongodb+srv://oordankale:7QeUMoXIaz1sw7Ow@meruem.p1hpz.mongodb
 
 const lvl = require('./leveling/levels.js')
 client.on('messageCreate', async message=>{
-    const vis = client.guilds.cache.find(g=> g.name === 'Treasures');
+    const vis = client.guilds.cache.find(g=> g.id === '1291216649868939306');
     if(message.guild === vis && !message.author.bot){
         lvl(message.author, message);
     }
@@ -69,12 +69,21 @@ client.on('messageCreate', async message=>{
     }
     if(message.guild.name !== vis.name){
        console.log(message.embeds);
-        const channel = vis.channels.cache.find(c=> c.name === 'posted')
+        const channel = vis.channels.cache.find(c => c.id === '1309000024625123348')
+        if(!channel){
+            console.log(vis.name)
+            console.log("Channel not found!")
+            return;
+        }
         //const role = vis.roles.cache.find(r=> r.name === 'post-announcement');
+        try{
         await channel.send({
             content: '<@&1309253230705901678>' + message.content || '',
             embeds: message.embeds
         });
+    }catch(err){
+        console.log(err)
+    }
 
     }
     if(!message.content.startsWith(prefix)) return;
