@@ -41,7 +41,8 @@ module.exports = {
         .addFields(
             {name:'Nen', value: `**${user.balance}**`, inline:true},
             {name:'Nen Ability', value: `**${user.ability? user.ability : "*No Nen ability selected yet*"}**`, inline:true},
-            {name:"# in Inventory",value: `*${inv ? user.inventory.length + ' items' :"No items in inventory"}*`, inline:true}
+            {name:"# in Inventory",value: `*${inv ? user.inventory.length + ' items' :"No items in inventory"}*`, inline:true},
+            {name: 'Discipline', value:`${user.discipline[1]}`,inline:true}
 
         )
         .setColor(0x9c3668)
