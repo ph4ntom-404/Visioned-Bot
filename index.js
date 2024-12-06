@@ -43,7 +43,7 @@ for (const file of commandFiles) {
 }
 
 const prefix = ">";
-client.once(Events.ClientReady, async readyClient => {
+client.once(Events.ClientReady, readyClient => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`);
   client.user.setActivity('with my testicles. please come watch', { type: ActivityType.Playing });
    keepAlive();
