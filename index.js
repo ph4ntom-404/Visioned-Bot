@@ -46,7 +46,7 @@ const prefix = ">";
 client.once(Events.ClientReady, async readyClient => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`);
   client.user.setActivity('with my testicles. please come watch', { type: ActivityType.Playing });
-  await keepAlive();
+   keepAlive();
 });
 const mongoose = require('mongoose');
 
