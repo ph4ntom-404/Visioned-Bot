@@ -118,7 +118,12 @@ module.exports = {
       
           collector.on("end", () => {
             game.reactions.removeAll().catch(console.error);
+            try{
             game.edit({content:"The Game has ended!"})
+            }catch(err){
+              console.log("error trying to send the message for hangman")
+              return;
+            }
           });
         
     }
