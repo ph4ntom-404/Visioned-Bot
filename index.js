@@ -6,7 +6,7 @@ const token = process.env.DISCORD_TOKEN
 
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
 app.get('/health', (req, res) => {
     res.status(200).send('Bot is running!');

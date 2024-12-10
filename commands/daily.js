@@ -30,9 +30,11 @@ module.exports = {
             return message.reply(`You can use this command again in \`${hours} hours and ${minutes} minutes.\``);
         }
         user.lastUsed = new Date()
-        let mult = 0;
+        let mult;
         if(user.streak >= 1){
             mult = 0.2
+        }else{
+            mult = 0;
         }
         const daily =  400 + ((user.streak * mult) * 100);
         pers.balance += daily
